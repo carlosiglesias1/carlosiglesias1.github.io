@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { PresentationComponent } from './presentation/presentation.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
-  {path: 'welcome', component: PresentationComponent }
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: '**', component: PresentationComponent },
+  { path: 'welcome', component: PresentationComponent }
 ];
 
 @NgModule({
