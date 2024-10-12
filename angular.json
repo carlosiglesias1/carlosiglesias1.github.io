@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "carlosiglesias1.github.io:build:production"
+              "buildTarget": "carlosiglesias1.github.io:build:production"
             },
             "development": {
-              "browserTarget": "carlosiglesias1.github.io:build:development"
+              "buildTarget": "carlosiglesias1.github.io:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "carlosiglesias1.github.io:build"
+            "buildTarget": "carlosiglesias1.github.io:build"
           }
         },
         "test": {
