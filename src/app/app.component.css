@@ -1,31 +1,32 @@
-:host{
+:host {
     --app-background: #c5c6c7;
     --nav-decoration: #1f2833;
+    --highlights: #66fcf1;
 }
 
-nav{
+nav {
     width: 100%;
 }
 
-nav::before{
+nav::before {
     filter: blur(2px);
 }
 
-nav>ul{
+nav>ul {
     margin: 10px 50px;
 }
 
-nav>ul>li{
+nav>ul>li {
     font-size: large;
     margin: 0 10px;
     padding-bottom: 3px;
 }
 
-nav>ul>li:hover{
+nav>ul>li:hover {
     padding: 0;
 }
 
-nav>ul>li:hover::after{
+nav>ul>li:hover::after {
     background-color: aqua;
     content: '';
     display: block;
@@ -34,7 +35,7 @@ nav>ul>li:hover::after{
     width: 100%;
 }
 
-nav>ul>li>a{
+nav>ul>li>a {
     text-decoration: none;
 }
 
@@ -50,9 +51,21 @@ nav>ul>li>a{
     width: 30%;
 }
 
-.content{
+.content {
     align-content: center;
     flex-grow: 1;
+}
+
+footer {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+footer a {
+    margin: 0 2px;
 }
 
 @media screen and (max-width: 500px) {
@@ -60,16 +73,56 @@ nav>ul>li>a{
         flex-direction: column;
     }
 
-    .main-section  {
+    .main-section {
         margin-top: 5px;
         width: 100%;
     }
 
-    .content{
+    .content {
         align-content: start;
         background-color: #c5c6c730;
         flex-grow: 1;
     }
+}
+
+.main-title {
+    color: #080808;
+    font-weight: 300;
+    font-size: 40px;
+    margin-top: 10px;
+    position: relative;
+    text-align: center;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.main-title h1 {
+    font-size: 50px;
+}
+
+.main-title h1:before {
+    width: 30px;
+    height: 5px;
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    margin-left: -14px;
+    background-color: #b80000;
+}
+
+.main-title h1::after {
+    width: 200px;
+    height: 1px;
+    display: block;
+    content: "";
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    margin-left: -100px;
+    background-color: #b80000;
 }
 
 /**
