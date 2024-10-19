@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1729350386829,
-  "index": "/carlosiglesias1.github.io/index.html",
+  "timestamp": 1729350550792,
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/carlosiglesias1.github.io/favicon.ico",
-        "/carlosiglesias1.github.io/index.html",
-        "/carlosiglesias1.github.io/main.f1d97a081c307267.js",
-        "/carlosiglesias1.github.io/manifest.webmanifest",
-        "/carlosiglesias1.github.io/polyfills.0033a580dd820105.js",
-        "/carlosiglesias1.github.io/runtime.1e5576d5c7042c1d.js",
-        "/carlosiglesias1.github.io/styles.841bcc167141922d.css"
+        "/favicon.ico",
+        "/index.html",
+        "/main.f1d97a081c307267.js",
+        "/manifest.webmanifest",
+        "/polyfills.0033a580dd820105.js",
+        "/runtime.1e5576d5c7042c1d.js",
+        "/styles.841bcc167141922d.css"
       ],
       "patterns": []
     },
@@ -29,35 +29,35 @@
         "ignoreVary": true
       },
       "urls": [
-        "/carlosiglesias1.github.io/assets/icons/icon-128x128.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-144x144.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-152x152.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-192x192.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-384x384.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-512x512.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-72x72.png",
-        "/carlosiglesias1.github.io/assets/icons/icon-96x96.png"
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/carlosiglesias1.github.io/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
-    "/carlosiglesias1.github.io/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
-    "/carlosiglesias1.github.io/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
-    "/carlosiglesias1.github.io/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
-    "/carlosiglesias1.github.io/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/carlosiglesias1.github.io/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/carlosiglesias1.github.io/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
-    "/carlosiglesias1.github.io/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
-    "/carlosiglesias1.github.io/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/carlosiglesias1.github.io/index.html": "7633e97d02e321d325bdfc776d099fbac103c4c8",
-    "/carlosiglesias1.github.io/main.f1d97a081c307267.js": "700889b46e1699d2b96b8415dd4518062070c462",
-    "/carlosiglesias1.github.io/manifest.webmanifest": "6f9f0035c9faa5a707ce85cd6d42f0b209d87220",
-    "/carlosiglesias1.github.io/polyfills.0033a580dd820105.js": "11a4078aa6be6ceee9f30550739ee60c20c5ef40",
-    "/carlosiglesias1.github.io/runtime.1e5576d5c7042c1d.js": "4d2b5a9dfe4965b4cf9f00cb8b7a585a32ef8f07",
-    "/carlosiglesias1.github.io/styles.841bcc167141922d.css": "d7d6ae9588d76bffaa76bcc78461aa26240f455a"
+    "/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
+    "/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
+    "/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
+    "/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
+    "/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "ba6e199785192c0d9e06cc4e9fa6d31d1d1a28ad",
+    "/main.f1d97a081c307267.js": "700889b46e1699d2b96b8415dd4518062070c462",
+    "/manifest.webmanifest": "6f9f0035c9faa5a707ce85cd6d42f0b209d87220",
+    "/polyfills.0033a580dd820105.js": "11a4078aa6be6ceee9f30550739ee60c20c5ef40",
+    "/runtime.1e5576d5c7042c1d.js": "4d2b5a9dfe4965b4cf9f00cb8b7a585a32ef8f07",
+    "/styles.841bcc167141922d.css": "d7d6ae9588d76bffaa76bcc78461aa26240f455a"
   },
   "navigationUrls": [
     {
