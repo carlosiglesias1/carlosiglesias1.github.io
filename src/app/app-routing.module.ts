@@ -5,11 +5,11 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: PresentationComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'skills', component: SkillsComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: PresentationComponent },
-  { path: 'welcome', component: PresentationComponent }
 ];
 
 @NgModule({
