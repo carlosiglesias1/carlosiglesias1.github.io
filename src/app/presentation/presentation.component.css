@@ -1,0 +1,9 @@
+.main-section{
+    display: flex;
+    height: 100%;
+}
+
+.photo-section  {
+    width: 400px;
+    margin: 0 5px;
+}

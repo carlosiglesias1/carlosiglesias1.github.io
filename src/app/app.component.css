@@ -1,7 +1,7 @@
 :host {
-    --app-background: #c5c6c7;
+    --app-background: #ffffff;
     --nav-decoration: #1f2833;
-    --highlights: #66fcf1;
+    --highlights: #66fcf2ab;
 }
 
 nav {
@@ -39,11 +39,18 @@ nav>ul>li>a {
     text-decoration: none;
 }
 
+nav>ul>li>a {
+    color: --nav-decoration;
+    text-decoration: none;
+}
+
 .app-content {
+    background-color: var(--app-background);
+    display: flex;
+    flex-direction: column;
     height: calc(100% - 7px);
     padding: 5px 2px 2px;
     width: calc(100% - 4px);
-    background-color: var(--app-background);
 }
 
 .main-section {
@@ -54,13 +61,15 @@ nav>ul>li>a {
 .content {
     align-content: center;
     flex-grow: 1;
+    height: 100px;
+    padding: 5px;
 }
 
 footer {
     bottom: 0;
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: sticky;
     width: 100%;
 }
 
@@ -81,7 +90,6 @@ footer a {
     .content {
         align-content: start;
         background-color: #c5c6c730;
-        flex-grow: 1;
     }
 }
 
