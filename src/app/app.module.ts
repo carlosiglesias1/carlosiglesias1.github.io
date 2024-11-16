@@ -2,7 +2,7 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapInstagram, bootstrapLinkedin } from '@ng-icons/bootstrap-icons';
+import { bootstrapGithub, bootstrapInstagram, bootstrapLinkedin } from '@ng-icons/bootstrap-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,9 +21,10 @@ import { SkillsComponent } from './skills/skills.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgIconsModule.withIcons({ bootstrapInstagram, bootstrapLinkedin }),
+    NgIconsModule.withIcons({ bootstrapGithub, bootstrapInstagram, bootstrapLinkedin }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'

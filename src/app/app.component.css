@@ -2,6 +2,8 @@
     --app-background: #ffffff;
     --nav-decoration: #1f2833;
     --highlights: #66fcf2ab;
+
+    font-size: 17px;
 }
 
 nav {
@@ -17,7 +19,7 @@ nav>ul {
 }
 
 nav>ul>li {
-    font-size: large;
+    font-size: 22px;
     margin: 0 10px;
     padding-bottom: 3px;
 }
@@ -27,7 +29,7 @@ nav>ul>li:hover {
 }
 
 nav>ul>li:hover::after {
-    background-color: aqua;
+    background-color: var(--highlights);
     content: '';
     display: block;
     height: 3px;
@@ -40,7 +42,7 @@ nav>ul>li>a {
 }
 
 nav>ul>li>a {
-    color: --nav-decoration;
+    color: var(--nav-decoration);
     text-decoration: none;
 }
 
@@ -74,23 +76,9 @@ footer {
 }
 
 footer a {
-    margin: 0 2px;
-}
-
-@media screen and (max-width: 500px) {
-    .app-content {
-        flex-direction: column;
-    }
-
-    .main-section {
-        margin-top: 5px;
-        width: 100%;
-    }
-
-    .content {
-        align-content: start;
-        background-color: #c5c6c730;
-    }
+    color: var(--nav-decoration);
+    margin: 0 5px;
+    text-decoration: none;
 }
 
 .main-title {
@@ -109,36 +97,28 @@ footer a {
     font-size: 50px;
 }
 
-.main-title h1:before {
-    width: 30px;
-    height: 5px;
-    display: block;
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    margin-left: -14px;
-    background-color: #b80000;
-}
-
 .main-title h1::after {
-    width: 200px;
-    height: 1px;
-    display: block;
-    content: "";
-    position: relative;
-    margin-top: 20px;
-    left: 50%;
-    margin-left: -100px;
     background-color: #b80000;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 15px 25px 0;
+    position: relative;
+    width: calc(100% - 50px);
 }
 
-/**
- * color palette: {
- *      borders: 0b0c10 (strong black)
- *      ¿background?: 1f2833 (lighter black)
- *      background: c5c6c7
- *      hihglights: 66fcf1
- *      titles: 45A29E
- *   }
- */
+@media screen and (max-width: 500px) {
+    .app-content {
+        flex-direction: column;
+    }
+
+    .main-section {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .content {
+        align-content: start;
+        background-color: #c5c6c730;
+    }
+}

@@ -1,10 +1,65 @@
 <div class="main-section">
   <div class="photo-section">
-    <img src="" alt="" style="height: 100%; width: 400px;"/>
+    <img src="https://drive.google.com/thumbnail?id=1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl&sz=w1000" alt=""
+      style="height: 100%; width: 550px;" />
   </div>
-  <div class="text-container">
-    <p>¡Hola Mundo!</p>
-    <p>Soy Carlos, desarrollador de aplicaciones. Actualmente desarrollo aplicaciones para entornos industriales 
-      <a href="https://www.septer.es/diferencias-entre-mes-y-mom-en-entornos-industriales/" target="_blank" rel="noopener noreferrer">(MES || MOM)</a></p>
+  <div class="text-container" [@panelState]="textFolded">
+    <div [ngStyle]="{
+      'height': textFolded === 'closed' ? '180px' : 'calc(100% - 20px)',
+      'overflow': textFolded === 'closed' ? 'hidden' : 'auto'
+    }">
+      <h1 style="font-size: 23px">¡Hola! Soy Carlos!</h1>
+
+      <p>
+        Soy programador con casi 3 años de experiencia en el desarrollo de software, actualmente especializado en
+        aplicaciones de sistemas MES utilizando C# .NET y AngularJS.<br />
+        Durante este tiempo, he tenido la oportunidad de trabajar en proyectos desafiantes que me han permitido
+        consolidar
+        mis habilidades tanto en el desarrollo frontend como en el backend, aunque mi enfoque actual es como
+        desarrollador
+        fullstack. Sin embargo, mi objetivo a largo plazo es especializarme en la rama de backend, donde tengo un
+        interés
+        particular por las arquitecturas escalables y el diseño de APIs eficientes.
+      </p>
+
+      <h2>Mi enfoque</h2>
+      <p>
+        A lo largo de mi carrera, he trabajado en la creación y mantenimiento de aplicaciones orientadas a la gestión de
+        procesos industriales, donde la fiabilidad y el rendimiento son clave. Cada proyecto que desarrollo lo enfoco
+        con
+        una mentalidad orientada a la eficiencia, la escalabilidad y el desarrollo limpio.
+      </p>
+
+      <h2>Más allá del código</h2>
+      <p>
+        Fuera del mundo del software, soy un apasionado del piragüismo. Recientemente, tuve el honor de ganar 2 medallas
+        en el Campeonato Mundial de Dragon Boat, lo que demuestra mi dedicación, disciplina y trabajo en equipo,
+        cualidades que también aplico a mi vida profesional. El deporte me ha enseñado la importancia de la colaboración
+        efectiva y la superación personal, cualidades que intento reflejar en cada uno de los proyectos que desarrollo.
+      </p>
+
+      <h2>¿Por qué trabajar conmigo?</h2>
+      <ul>
+        <li><strong>Compromiso:</strong> Me esfuerzo por entregar soluciones de alta calidad dentro de los plazos
+          establecidos.</li>
+        <li><strong>Aprendizaje constante:</strong> Siempre estoy en busca de nuevas tecnologías y enfoques para seguir
+          mejorando.
+        </li>
+        <li><strong>Colaboración:</strong> Mi experiencia en equipo me ha permitido entender la importancia de la
+          comunicación clara
+          y la colaboración eficiente.</li>
+      </ul>
+
+      <p style="text-align: center;">
+        Si estás buscando un programador apasionado por crear soluciones innovadoras y confiables, no dudes en ponerte
+        en
+        contacto conmigo.<br /> ¡Estoy siempre abierto a nuevos retos!
+      </p>
+    </div>
+
+    <div *ngIf="screenWidth <= 500" (click)="toggleFold()"
+      style="position: absolute; background-color: #ffffff88;; z-index: 1000; text-align: center; width: 100%; font-size: 20px; bottom: 0;">
+      {{textFolded == 'closed' ? 'Ver más...' : 'Ver menos'}}
+    </div>
   </div>
 </div>

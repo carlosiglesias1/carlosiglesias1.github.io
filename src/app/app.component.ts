@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'carlosiglesias1.github.io';
+  
+  socialMediaSize = '32px'
 }
