@@ -17,7 +17,7 @@ strong{
 }
 
 @media screen and (max-width: 500px) {
-    .text-container{
+    .text-section{
         background-color: #f0f8ff90;
         float: right;
         position: relative;

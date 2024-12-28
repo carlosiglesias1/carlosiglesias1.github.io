@@ -24,11 +24,20 @@ nav>ul>li {
     padding-bottom: 3px;
 }
 
-nav>ul>li:hover {
+nav>ul>li.available:hover {
     padding: 0;
 }
 
-nav>ul>li:hover::after {
+nav>ul>li.available:hover::after {
+    background-color: var(--highlights);
+    content: '';
+    display: block;
+    height: 3px;
+    margin: 0;
+    width: 100%;
+}
+
+.selected-section::after {
     background-color: var(--highlights);
     content: '';
     display: block;

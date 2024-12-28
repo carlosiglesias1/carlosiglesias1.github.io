@@ -1,14 +1,14 @@
 <div class="main-section">
   <div class="photo-section">
-    <img src="https://drive.google.com/thumbnail?id=1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl&sz=w1000" alt=""
-      style="height: 100%; width: 550px;" />
+    <!-- src="https://drive.google.com/thumbnail?id=1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl&sz=w1000" -->
+    <img [src]="imageBlob" alt="" style="height: 100%; width: 550px;" />
   </div>
-  <div class="text-container" [@panelState]="textFolded">
-    <div [ngStyle]="{
-      'height': textFolded === 'closed' ? '180px' : 'calc(100% - 20px)',
+  <div class="text-section" [@panelState]="textFolded">
+    <div id="text-container" [ngStyle]="{
+      'height': textFolded === 'closed' ? '36px' : 'calc(100% - 46px)',
       'overflow': textFolded === 'closed' ? 'hidden' : 'auto'
     }">
-      <h1 style="font-size: 23px">¡Hola! Soy Carlos!</h1>
+      <h1 class="title" style="font-size: 23px">¡Hola! Soy Carlos!</h1>
 
       <p>
         Soy programador con casi 3 años de experiencia en el desarrollo de software, actualmente especializado en
@@ -56,10 +56,10 @@
         contacto conmigo.<br /> ¡Estoy siempre abierto a nuevos retos!
       </p>
     </div>
+  </div>
 
-    <div *ngIf="screenWidth <= 500" (click)="toggleFold()"
-      style="position: absolute; background-color: #ffffff88;; z-index: 1000; text-align: center; width: 100%; font-size: 20px; bottom: 0;">
-      {{textFolded == 'closed' ? 'Ver más...' : 'Ver menos'}}
-    </div>
+  <div *ngIf="screenWidth <= 500" (click)="toggleFold()"
+    style="background-color: rgba(126, 123, 123, 0.274); border-radius: 50%; bottom: 36px; font-size: 35px; height: 38px; left: 0; margin: 8px auto; right: 0; position: absolute; text-align: center; width: 38px; z-index: 1000;">
+    <ng-icon [name]="textFolded == 'closed' ? 'bootstrapArrowDown' : 'bootstrapArrowUp'"></ng-icon>
   </div>
 </div>
