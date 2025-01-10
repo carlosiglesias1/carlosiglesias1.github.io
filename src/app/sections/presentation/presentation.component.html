@@ -58,8 +58,8 @@
     </div>
   </div>
 
-  <div *ngIf="screenWidth <= 500" (click)="toggleFold()"
+  <div *ngIf="screenWidth <= 500" (click)="toggleFold($event)"
     style="background-color: rgba(126, 123, 123, 0.274); border-radius: 50%; bottom: 36px; font-size: 35px; height: 38px; left: 0; margin: 8px auto; right: 0; position: absolute; text-align: center; width: 38px; z-index: 1000;">
-    <ng-icon [name]="textFolded == 'closed' ? 'bootstrapArrowDown' : 'bootstrapArrowUp'"></ng-icon>
+    <ng-icon [name]="textFolded === 'closed' ? 'bootstrapArrowDown' : 'bootstrapArrowUp'"></ng-icon>
   </div>
 </div>

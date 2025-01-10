@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
-import { ImagesService } from '../services/images.service';
+import { ImagesService } from '../../services/images.service';
 
 @Component({
   selector: 'app-presentation',
@@ -21,7 +21,6 @@ export class PresentationComponent {
   imageBlob: string = ''
 
   constructor(private imgs: ImagesService) {
-    // this.imageBlob = imgs.images.get('home')
     this.imgs.getImage('home')
       .subscribe(image => this.imageBlob = image)
   }
@@ -35,20 +34,24 @@ export class PresentationComponent {
     }
   }
 
-  toggleFold() {
+  toggleFold($event: any) {
+    if ($event && this.textFolded === 'open')
+      document.getElementById('text-container')?.scrollTo({ top: 0 })
     if (this.screenWidth <= 500)
       this.textFolded = this.textFolded === 'open' ? 'closed' : 'open'
   }
 
   @HostListener('touchmove', ['$event'])
-  onScroll(event: any) {
-    if (!(event.target.id == 'text-container' || event.target.parentNode.id == 'text-container'))
-      this.toggleFold()
+  onScroll(event: TouchEvent) {
+    let target = (event.target as unknown) as HTMLElement
+    let parentNode = (target.parentNode as unknown) as HTMLElement
+    if (event.touches.length === 1 && !(target?.id == 'text-container' || parentNode?.id == 'text-container') && this.textFolded === 'closed')
+      this.textFolded = 'open'
   }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
   onResize(width: number) {
     this.screenWidth = width
-    this.toggleFold()
+    this.toggleFold(null)
   }
 }

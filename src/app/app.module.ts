@@ -8,31 +8,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { PresentationComponent } from './presentation/presentation.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { SkillsComponent } from './skills/skills.component';
+import { PresentationComponent } from './sections/presentation/presentation.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
+import { SkillsComponent } from './sections/skills/skills.component';
+import { CardViewComponent } from './components/card-view/card-view.component';
+
 import { ImagesService } from './services/images.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PresentationComponent,
     ProjectsComponent,
-    SkillsComponent
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     NgIconsModule.withIcons({ bootstrapGithub, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000'
-    })
-  ],
+        enabled: !isDevMode(),
+        registrationStrategy: 'registerWhenStable:30000'
+    }),
+    CardViewComponent
+],
   providers: [ImagesService],
   bootstrap: [AppComponent]
 })

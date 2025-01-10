@@ -1,0 +1,11 @@
+<!-- <ul style="list-style: none;">
+    <li><cig-card-view title="Line Management System (LMS) UI Fullstack APP+Api" [image]="images.lms"></cig-card-view></li>
+    <li>KPI's Configuration and View/Query FullStack DB+Api+App</li>
+    <li>UI ERP Main Menu</li>
+    <li>Oracle Forms Fullstack Development</li>
+    <li>Custom MES (Manufacturing Environment System) FullStack development</li>
+</ul> -->
+
+<div class="card-container">
+    <cig-card-view *ngFor="let card of cards;" [title]="card.title" [image]="images[card.imageName]"></cig-card-view>
+</div>
