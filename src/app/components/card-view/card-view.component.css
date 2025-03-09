@@ -2,8 +2,19 @@
     border: 1px dimgray solid;
     border-radius: 5px;
 }
-/* 
-.cig-card-image{
-    height: 400px;
-    width: 400px;
-} */
+
+.cig-card-image {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 1px;
+    width: 100%;
+}
+
+.cig-card-image>img{
+    border-radius: 5px;
+}
+
+.cig-card-title{
+    margin-left: 2px;
+}

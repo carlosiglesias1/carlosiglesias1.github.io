@@ -1,6 +1,17 @@
+app-projects {
+    height: 100%;
+}
+
 .card-container {
     display: grid;
     grid-template-columns: auto auto;
     overflow-y: auto;
     max-height: 100%;
+}
+
+@media screen and (max-width : 500px) {
+    .card-container {
+        display: block;
+        height: 100%;
+    }
 }

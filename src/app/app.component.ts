@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,23 @@ export class AppComponent {
   navigationSections = ['Home', 'Projects', 'Skills']
   selectedSection: number = 0
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd){
+        switch (this.router.url) {
+          case '/welcome':
+            this.selectedSection = 0
+            break
+          case '/projects':
+            this.selectedSection = 1
+            break
+          case '/skills':
+            this.selectedSection = 2
+            break
+        }
+      }
+    })
+  }
 
   navigateTo(index: number) {
     switch (index) {
@@ -28,7 +44,5 @@ export class AppComponent {
       default:
         throw 'Link not foun!'
     }
-
-    this.selectedSection = index
   }
 }

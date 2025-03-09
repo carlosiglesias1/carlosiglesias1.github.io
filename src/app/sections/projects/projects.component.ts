@@ -40,12 +40,19 @@ export class ProjectsComponent {
     ]
 
     this.images = {
-      lms: ''
+      lms: '',
+      mes: ''
     }
+  }
 
+  ngOnInit() {
     this.images_svc.getImage('lms')
       .subscribe(response => { this.images.lms = response })
     this.images_svc.getImage('mes')
       .subscribe(response => { this.images.mes = response })
+    this.images_svc.getImage('erp')
+      .subscribe(response => { this.images.erp = response })
+    this.images_svc.getImage('oracle')
+      .subscribe(response => { this.images.oracle = response })
   }
 }
