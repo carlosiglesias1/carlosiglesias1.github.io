@@ -1,6 +1,8 @@
 .cig-card {
-    border: 1px dimgray solid;
+    border: 1px #69696990 solid;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px #0f0f0f50;
+    position: relative;
 }
 
 .cig-card-image {
@@ -12,13 +14,18 @@
 }
 
 .cig-card-image>img {
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     max-width: 100%;
     width: 400px;
 }
 
 .cig-card-title {
     margin-left: 2px;
+    text-overflow: ellipsis;
+}
+
+.cig-card-title > h2{
+    margin: 0;
 }
 
 @media screen and (max-width : 500px) {

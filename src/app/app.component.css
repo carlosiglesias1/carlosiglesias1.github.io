@@ -1,9 +1,35 @@
 :host {
     --app-background: #ffffff;
     --nav-decoration: #1f2833;
-    --highlights: #66fcf2ab;
+    --highlights: #b8000050;
 
     font-size: 17px;
+}
+
+.main-title {
+    color: #080808;
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.main-title::after {
+    background-color: #d40000;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 15px 5px 0;
+    position: relative;
+}
+
+.main-title>h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 nav {
@@ -32,16 +58,7 @@ nav>ul>li.available:hover::after {
     background-color: var(--highlights);
     content: '';
     display: block;
-    height: 3px;
-    margin: 0;
-    width: 100%;
-}
-
-.selected-section::after {
-    background-color: var(--highlights);
-    content: '';
-    display: block;
-    height: 3px;
+    height: 2px;
     margin: 0;
     width: 100%;
 }
@@ -55,6 +72,15 @@ nav>ul>li>a {
     text-decoration: none;
 }
 
+.selected-section::after {
+    background-color: var(--highlights);
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 0;
+    width: 100%;
+}
+
 .app-content {
     background-color: var(--app-background);
     display: flex;
@@ -64,12 +90,7 @@ nav>ul>li>a {
     width: calc(100% - 4px);
 }
 
-.main-section {
-    align-content: center;
-    width: 30%;
-}
-
-.content {
+.app-content>.content {
     align-content: center;
     flex-grow: 1;
     height: 100px;
@@ -88,32 +109,6 @@ footer a {
     color: var(--nav-decoration);
     margin: 0 5px;
     text-decoration: none;
-}
-
-.main-title {
-    color: #080808;
-    font-weight: 300;
-    font-size: 40px;
-    margin-top: 10px;
-    position: relative;
-    text-align: center;
-    -webkit-transition: all 0.4s ease 0s;
-    -o-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s;
-}
-
-.main-title h1 {
-    font-size: 50px;
-}
-
-.main-title h1::after {
-    background-color: #b80000;
-    content: "";
-    display: block;
-    height: 1px;
-    margin: 15px 25px 0;
-    position: relative;
-    width: calc(100% - 50px);
 }
 
 @media screen and (max-width: 500px) {

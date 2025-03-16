@@ -10,7 +10,7 @@ app-projects {
 }
 
 .card-container>cig-card-view {
-    margin: 1px 1px;
+    margin: 10px 10px;
 }
 
 @media screen and (max-width : 500px) {

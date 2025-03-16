@@ -6,12 +6,20 @@
 
   <nav>
     <ul style="display: flex; justify-content: end; list-style: none;">
-      <li [ngClass]="{'selected-section': selectedSection == 0, 'available': selectedSection != 0 }"><a
-          routerLink="/welcome" (click)="navigateTo(0); $event.preventDefault()">Home</a></li>
-      <li [ngClass]="{'selected-section': selectedSection==1, 'available' : selectedSection !=1 }"><a
-          routerLink="/projects" (click)="navigateTo(1); $event.preventDefault()">Projects</a> </li>
-      <li [ngClass]="{'selected-section': selectedSection == 2, 'available': selectedSection != 2  }"><a
-          routerLink="/skills" (click)="navigateTo(2); $event.preventDefault()">Skills</a></li>
+      <li [ngClass]="{'selected-section': selectedSection == 0, 'available': selectedSection != 0 }">
+        <a routerLink="/welcome" (click)="navigateTo(0); $event.preventDefault()">Inicio</a>
+      </li>
+      <li [ngClass]="{'selected-section': selectedSection == 1, 'available' : selectedSection !=1 }">
+        <a routerLink="/projects" (click)="navigateTo(1); $event.preventDefault()">Proyectos</a>
+      </li>
+      <li [ngClass]="{'selected-section': selectedSection == 2, 'available': selectedSection != 2  }">
+        <a routerLink="/skills" (click)="navigateTo(2); $event.preventDefault()">Skills</a>
+      </li>
+      <!-- 
+      <li [ngClass]="{'selected-section': selectedSection == 3, 'available': selectedSection != 3  }">
+        <a routerLink="/aboutme" (click)="navigateTo(2); $event.preventDefault()">Sobre mí</a>
+      </li> 
+      -->
     </ul>
   </nav>
 
