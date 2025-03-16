@@ -1,7 +1,7 @@
 <div class="main-section">
   <div class="photo-section">
-    <!-- src="https://drive.google.com/thumbnail?id=1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl&sz=w1000" -->
-    <img [src]="imageBlob" alt="" style="height: 100%; width: 550px;" />
+    <!-- style="height: 100%; width: 100%;" -->
+    <img [src]="imageBlob" alt="" />
   </div>
   <div class="text-section" [@panelState]="textFolded">
     <div id="text-container" [ngStyle]="{
@@ -52,14 +52,15 @@
 
       <p style="text-align: center;">
         Si estás buscando un programador apasionado por crear soluciones innovadoras y confiables, no dudes en ponerte
-        en
-        contacto conmigo.<br /> ¡Estoy siempre abierto a nuevos retos!
+        en contacto conmigo.
+        <br /> 
+        ¡Estoy siempre abierto a nuevos retos!
       </p>
     </div>
   </div>
 
   <div *ngIf="screenWidth <= 500" (click)="toggleFold($event)"
-    style="background-color: rgba(126, 123, 123, 0.274); border-radius: 50%; bottom: 36px; font-size: 35px; height: 38px; left: 0; margin: 8px auto; right: 0; position: absolute; text-align: center; width: 38px; z-index: 1000;">
+    style="background-color: rgba(126, 123, 123, 0.274); border-radius: 50%; bottom: 0px; font-size: 35px; height: 38px; left: 0; margin: 0 auto; right: 0; position: absolute; text-align: center; width: 38px; z-index: 1000;">
     <ng-icon [name]="textFolded === 'closed' ? 'bootstrapArrowDown' : 'bootstrapArrowUp'"></ng-icon>
   </div>
 </div>

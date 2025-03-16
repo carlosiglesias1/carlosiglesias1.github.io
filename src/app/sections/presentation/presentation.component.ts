@@ -9,7 +9,7 @@ import { ImagesService } from '../../services/images.service';
   animations: [
     trigger('panelState', [
       state('closed', style({ height: '30px' })),
-      state('open', style({ height: 'calc(100% - 20px)' })),
+      state('open', style({ height: '100%' })),
       transition('open <=> closed', animate('300ms ease-in-out'))
     ]),
   ]

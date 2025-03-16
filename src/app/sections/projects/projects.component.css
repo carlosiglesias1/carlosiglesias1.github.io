@@ -9,6 +9,10 @@ app-projects {
     max-height: 100%;
 }
 
+.card-container>cig-card-view {
+    margin: 1px 1px;
+}
+
 @media screen and (max-width : 500px) {
     .card-container {
         display: block;

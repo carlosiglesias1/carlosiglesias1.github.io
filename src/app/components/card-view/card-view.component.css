@@ -11,10 +11,18 @@
     width: 100%;
 }
 
-.cig-card-image>img{
+.cig-card-image>img {
     border-radius: 5px;
+    max-width: 100%;
+    width: 400px;
 }
 
-.cig-card-title{
+.cig-card-title {
     margin-left: 2px;
+}
+
+@media screen and (max-width : 500px) {
+    .cig-card-image {
+        margin-top: 0;
+    }
 }

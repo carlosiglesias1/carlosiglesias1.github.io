@@ -1,4 +1,4 @@
-strong{
+strong {
     font-weight: 500;
 }
 
@@ -9,28 +9,33 @@ strong{
 
 .photo-section {
     margin: 0 5px;
-    width: 550px;
+    max-height: 100%;
+    width: 100%;
 }
 
 .photo-section>img {
     border-radius: 5px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 500px) {
-    .text-section{
-        background-color: #f0f8ff90;
-        float: right;
+    .main-section{
         position: relative;
+    }
+
+    .text-section {
+        background-color: #f0f8ff90;
         z-index: 10;
     }
 
-    .photo-section{
-        margin: 0 0;
+    .photo-section {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        margin: 0;
+        max-width: 100%;
         position: absolute;
-        width: calc(100% - 15px);
-    }
-
-    .photo-section>img {
-        width: 100% !important;
     }
 }
