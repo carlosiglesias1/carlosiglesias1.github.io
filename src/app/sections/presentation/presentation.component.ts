@@ -1,57 +1,85 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.css'],
-  animations: [
-    trigger('panelState', [
-      state('closed', style({ height: '30px' })),
-      state('open', style({ height: '100%' })),
-      transition('open <=> closed', animate('300ms ease-in-out'))
-    ]),
-  ]
+  encapsulation: ViewEncapsulation.None,
 })
 export class PresentationComponent {
-  textFolded: string = '';
   screenWidth: number = 1000;
-
+  hoursWidth: string
+  textFolded: string = '';
   imageBlob: string = ''
+  hoursProgramming: SafeHtml
+  spanNumbersArray: Array<string>
+  linesOfCode: {
+    html: SafeHtml,
+    width: string
+  }
 
-  constructor(private imgs: ImagesService) {
+  constructor(private imgs: ImagesService, private sanitizer: DomSanitizer) {
+    this.hoursWidth = ''
+    this.hoursProgramming = ''
+    this.spanNumbersArray = []
+    this.linesOfCode = {
+      html: '',
+      width: ''
+    }
+
     this.imgs.getImage('home')
       .subscribe(image => this.imageBlob = image)
   }
 
   ngOnInit() {
-    this.screenWidth = window.innerWidth;
-    if (this.screenWidth <= 500) {
-      this.textFolded = 'closed'
-    } else {
-      this.textFolded = 'open'
+    this.setUpNumbers()
+    this.setUpLinesOfCode()
+  }
+
+  private setUpNumbers(): void {
+    let hoursDigits = (() => { return Math.floor((new Date().getTime() - new Date('01-01-2018 00:00:00Z').getTime()) / 3600000) })()
+      .toString().split('')
+
+    for (let i = 0; i < hoursDigits.length; i++) {
+      const spanList = Array(10)
+        .fill(0, 0, 10)
+
+      this.spanNumbersArray.push(`<span class="number-holder visible">${spanList.map((_, index) => `<span>${index}</span>`).join('')}</span>`)
     }
+    this.hoursProgramming = this.sanitizer.bypassSecurityTrustHtml(this.spanNumbersArray.join(''))
+
+    setTimeout(() => {
+      this.animateNumber('#hours-counter>span', hoursDigits)
+      this.hoursWidth = `${hoursDigits.length * 28}px`
+    }, 200)
   }
 
-  toggleFold($event: any) {
-    if ($event && this.textFolded === 'open')
-      document.getElementById('text-container')?.scrollTo({ top: 0 })
-    if (this.screenWidth <= 500)
-      this.textFolded = this.textFolded === 'open' ? 'closed' : 'open'
+  private setUpLinesOfCode(): void {
+    const linesOfCode = (26145).toString().split('')
+    let spanNumbersArray = []
+
+    for (let i = 0; i < linesOfCode.length; i++) {
+      const spanList = Array(10)
+        .fill(0, 0, 10)
+
+      spanNumbersArray.push(`<span class="number-holder visible">${spanList.map((_, index) => `<span>${index}</span>`).join('')}</span>`)
+    }
+    this.linesOfCode.html = this.sanitizer.bypassSecurityTrustHtml('~' + spanNumbersArray.join(''))
+    setTimeout(() => {
+      this.animateNumber('#lines-wroten>span', linesOfCode)
+      this.linesOfCode.width = `${(linesOfCode.length + 1) * 28}px`
+    }, 200)
   }
 
-  @HostListener('touchmove', ['$event'])
-  onScroll(event: TouchEvent) {
-    let target = (event.target as unknown) as HTMLElement
-    let parentNode = (target.parentNode as unknown) as HTMLElement
-    if (event.touches.length === 1 && !(target?.id == 'text-container' || parentNode?.id == 'text-container') && this.textFolded === 'closed')
-      this.textFolded = 'open'
-  }
-
-  @HostListener('window:resize', ['$event.target.innerWidth'])
-  onResize(width: number) {
-    this.screenWidth = width
-    this.toggleFold(null)
+  private animateNumber(selector: string, hoursDigits: string[]): void {
+    for (let i = 0; i < hoursDigits.length; i++) {
+      document.querySelectorAll(selector)
+        .forEach((span, index) => {
+          const htmlSpan = span as HTMLElement
+          htmlSpan.style.transform = `translateY(-${100 * parseInt(hoursDigits[index])}%)`
+        })
+    }
   }
 }

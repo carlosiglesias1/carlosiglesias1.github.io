@@ -1,66 +1,20 @@
 <div class="main-section">
-  <div class="photo-section">
-    <!-- style="height: 100%; width: 100%;" -->
-    <img [src]="imageBlob" alt="" />
+  
+  <div class="left-content">
+    <h2>Si se puede soñar se puede programar</h2>
   </div>
-  <div class="text-section" [@panelState]="textFolded">
-    <div id="text-container" [ngStyle]="{
-      'height': textFolded === 'closed' ? '36px' : 'calc(100% - 46px)',
-      'overflow': textFolded === 'closed' ? 'hidden' : 'auto'
-    }">
-      <h1 class="title" style="font-size: 23px">¡Hola! Soy Carlos!</h1>
 
-      <p>
-        Soy programador con casi 3 años de experiencia en el desarrollo de software, actualmente especializado en
-        aplicaciones de sistemas MES utilizando C# .NET y AngularJS.<br />
-        Durante este tiempo, he tenido la oportunidad de trabajar en proyectos desafiantes que me han permitido
-        consolidar
-        mis habilidades tanto en el desarrollo frontend como en el backend, aunque mi enfoque actual es como
-        desarrollador
-        fullstack. Sin embargo, mi objetivo a largo plazo es especializarme en la rama de backend, donde tengo un
-        interés
-        particular por las arquitecturas escalables y el diseño de APIs eficientes.
-      </p>
-
-      <h2>Mi enfoque</h2>
-      <p>
-        A lo largo de mi carrera, he trabajado en la creación y mantenimiento de aplicaciones orientadas a la gestión de
-        procesos industriales, donde la fiabilidad y el rendimiento son clave. Cada proyecto que desarrollo lo enfoco
-        con
-        una mentalidad orientada a la eficiencia, la escalabilidad y el desarrollo limpio.
-      </p>
-
-      <h2>Más allá del código</h2>
-      <p>
-        Fuera del mundo del software, soy un apasionado del piragüismo. Recientemente, tuve el honor de ganar 2 medallas
-        en el Campeonato Mundial de Dragon Boat, lo que demuestra mi dedicación, disciplina y trabajo en equipo,
-        cualidades que también aplico a mi vida profesional. El deporte me ha enseñado la importancia de la colaboración
-        efectiva y la superación personal, cualidades que intento reflejar en cada uno de los proyectos que desarrollo.
-      </p>
-
-      <h2>¿Por qué trabajar conmigo?</h2>
-      <ul>
-        <li><strong>Compromiso:</strong> Me esfuerzo por entregar soluciones de alta calidad dentro de los plazos
-          establecidos.</li>
-        <li><strong>Aprendizaje constante:</strong> Siempre estoy en busca de nuevas tecnologías y enfoques para seguir
-          mejorando.
-        </li>
-        <li><strong>Colaboración:</strong> Mi experiencia en equipo me ha permitido entender la importancia de la
-          comunicación clara
-          y la colaboración eficiente.</li>
-      </ul>
-
-      <p style="text-align: center;">
-        Si estás buscando un programador apasionado por crear soluciones innovadoras y confiables, no dudes en ponerte
-        en contacto conmigo.
-        <br /> 
-        ¡Estoy siempre abierto a nuevos retos!
-      </p>
+  <div class="right-content">
+    <div id="hours-programming" class="kpi-box">
+      {{'return (new Date() - new Date("01-01-2018 00:00:00Z"))'}}
+      <h3 id="hours-counter" class="number-display" [innerHTML]="hoursProgramming" [ngStyle]="{width: hoursWidth}"></h3>
+      HORAS PROGRAMANDO
     </div>
-  </div>
-
-  <div *ngIf="screenWidth <= 500" (click)="toggleFold($event)"
-    style="background-color: rgba(126, 123, 123, 0.274); border-radius: 50%; bottom: 0px; font-size: 35px; height: 38px; left: 0; margin: 0 auto; right: 0; position: absolute; text-align: center; width: 38px; z-index: 1000;">
-    <ng-icon [name]="textFolded === 'closed' ? 'bootstrapArrowDown' : 'bootstrapArrowUp'"></ng-icon>
-  </div>
+  
+    <div id="code-lines-wrote" class="kpi-box">
+      git ls-files | grep '\.js' | xargs wc -l
+      <h3 id="lines-wroten" class="number-display" [innerHTML]="linesOfCode.html" [ngStyle]="{width: linesOfCode.width}"></h3>
+      LÍNEAS DE CÓDIGO
+    </div>
+  </div>  
 </div>

@@ -42,6 +42,9 @@ nav::before {
 
 nav>ul {
     margin: 10px 50px;
+    display: flex;
+    justify-content: end;
+    list-style: none;
 }
 
 nav>ul>li {
@@ -124,5 +127,19 @@ footer a {
     .content {
         align-content: start;
         background-color: #c5c6c730;
+    }
+
+    nav {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav>ul {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10px 0;
+        padding: 0;
+        width: 100%;
     }
 }
