@@ -20,20 +20,21 @@ h2{
 
 .right-content{
     display: grid;
-    gap: 1px;
+    grid-gap: 3px;
     grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
 }
 
 .kpi-box {
     align-items: center;
-    background-color: #cccccc;
+    background-color: #edf2f4;
     border-radius: 5px;
-    color: #a62c2a;
+    color: #ef233c;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0.1em 0;
-    max-width: 480px;
+    /* max-width: 480px; */
     height: 150px;
     padding: 5px;
     position: relative;
@@ -83,4 +84,8 @@ span {
     width: 30px;
     opacity: 1;
     flex-shrink: 1;
+}
+
+#siemens-environment .reading-block{
+    transform: translateY(50px) !important;
 }

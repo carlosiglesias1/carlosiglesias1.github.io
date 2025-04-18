@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapGithub, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown } from '@ng-icons/bootstrap-icons';
+import { remixAngularjsLine } from '@ng-icons/remixicon';
+import { simpleSiemens } from '@ng-icons/simple-icons';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,13 +30,14 @@ import { ImagesService } from './services/images.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgIconsModule.withIcons({ bootstrapGithub, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown }),
+    NgxGaugeModule,
+    NgIconsModule.withIcons({ bootstrapGithub, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, remixAngularjsLine, simpleSiemens }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-        enabled: !isDevMode(),
-        registrationStrategy: 'registerWhenStable:30000'
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
     }),
-    CardViewComponent
-],
+    CardViewComponent,
+  ],
   providers: [ImagesService],
   bootstrap: [AppComponent]
 })
