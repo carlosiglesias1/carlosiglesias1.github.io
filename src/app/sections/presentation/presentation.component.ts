@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ImagesService } from '../../services/images.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Clipboard } from '@angular/cdk/clipboard';
+import { ImagesService } from '../../services/images.service';
 
 @Component({
   selector: 'app-presentation',
@@ -10,6 +11,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class PresentationComponent {
   screenWidth: number = 1000;
+  socialMediaSize: string = '32px'
   hoursWidth: string
   textFolded: string = '';
   imageBlob: string = ''
@@ -20,7 +22,7 @@ export class PresentationComponent {
     width: string
   }
 
-  constructor(private imgs: ImagesService, private sanitizer: DomSanitizer) {
+  constructor(private imgs: ImagesService, private clipboard: Clipboard, private sanitizer: DomSanitizer) {
     this.hoursWidth = ''
     this.hoursProgramming = ''
     this.spanNumbersArray = []
@@ -38,8 +40,15 @@ export class PresentationComponent {
     this.setUpLinesOfCode()
   }
 
+  public copyEmail() {
+    if(this.clipboard.copy('carlosig490@gmail.com'))
+      alert('Copiado al portapapeles')
+    // this.clipboard.writeText('carlosig490@gmail.com')
+    //   .then(() => alert("Copiado al portapapeles"))
+  }
+
   private setUpNumbers(): void {
-    let hoursDigits = (() => { return Math.floor((new Date().getTime() - new Date('01-01-2018 00:00:00Z').getTime()) / 3600000) })()
+    let hoursDigits = (() => { return Math.floor((new Date().getTime() - new Date('01-01-2020 00:00:00Z').getTime()) / 3600000) })()
       .toString().split('')
 
     for (let i = 0; i < hoursDigits.length; i++) {

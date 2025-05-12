@@ -16,7 +16,7 @@ export class ImagesService {
     this.imageUrls = new Map(
       [
         [
-          'home', `${driveContentUrl}1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl`
+          'home', `${driveContentUrl}1csj7K5ey5nMEYgnGxgefk2Bi1xr9NF6H`
         ],
         [
           'lms', driveContentUrl + '1aDH5ShpTOfp01lfahZN2S17fpj3InQ6S'

@@ -2,7 +2,7 @@ strong {
     font-weight: 500;
 }
 
-h2{
+h2 {
     align-items: center;
     font-family: Montserrat, sans-serif !important;
     font-size: 2.5rem !important;
@@ -18,7 +18,18 @@ h2{
     align-items: center;
 }
 
-.right-content{
+.left-content>.picture-section {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px
+}
+
+.left-content>.picture-section>img {
+    border-radius: 50%;
+}
+
+.right-content {
     display: grid;
     grid-gap: 3px;
     grid-template-columns: 50% 50%;
@@ -86,6 +97,32 @@ span {
     flex-shrink: 1;
 }
 
-#siemens-environment .reading-block{
-    transform: translateY(50px) !important;
+#siemens-environment .reading-block {
+    transform: translateY(75px) !important;
+}
+
+#siemens-environment .reading-label {
+    color: rgba(0, 150, 136, 1);
+}
+
+#dotnet .reading-block {
+    /* transform: translateY(75px) !important; */
+    transform: translate(25px, 70px) !important;
+}
+
+#dotnet .reading-label {
+    color: #1384C8;
+}
+
+#social-media {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+}
+
+#social-media>a{
+    color: var(--nav-decoration);
+    margin: 0 5px;
+    text-decoration: none;
 }
