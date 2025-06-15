@@ -4,8 +4,6 @@ import { INotification, NotificationService, NotificationType } from 'src/app/se
 
 @Component({
   selector: 'app-notification',
-  standalone: true,
-  imports: [],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.css'
 })
@@ -31,25 +29,33 @@ export class NotificationComponent {
         if (notification) this.render(notification);
       });
   }
+
   ngOnDestroy() {
     this._subscribed = false;
   }
+
   private render(notification: INotification) {
     const boxColorClass = this.classMap.get(notification.type);
     let classesToAdd = ['message-box', boxColorClass];
 
     let notificationBox = this.renderer.createElement('div');
-    let header = this.renderer.createElement('b');
+    let header = this.renderer.createElement('h4');
     let content = this.renderer.createElement('div');
+
     classesToAdd.forEach((_class) => _class && this.renderer.addClass(notificationBox, _class));
     this.renderer.setStyle(notificationBox, 'transition', `opacity ${notification.duration}ms`);
-    this.renderer.setStyle(notificationBox, 'opacity', '1');
+    this.renderer.setStyle(notificationBox, 'opacity', '0.9');
+
     const headerText = this.renderer.createText(NotificationType[notification.type]);
+    this.renderer.setStyle(header, 'margin', '0');
     this.renderer.appendChild(header, headerText);
+    
     const text = this.renderer.createText(notification.message);
     this.renderer.appendChild(content, text);
+
     if (this.container)
       this.renderer.appendChild(this.container.nativeElement, notificationBox);
+
     this.renderer.appendChild(notificationBox, header);
     this.renderer.appendChild(notificationBox, content);
 

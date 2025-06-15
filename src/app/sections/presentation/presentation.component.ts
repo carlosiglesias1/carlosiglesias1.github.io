@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ImagesService } from '../../services/images.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-presentation',
@@ -9,7 +10,7 @@ import { ImagesService } from '../../services/images.service';
   styleUrls: ['./presentation.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class PresentationComponent {
+export class PresentationComponent implements OnInit {
   screenWidth: number = 1000;
   socialMediaSize: string = '32px'
   hoursWidth: string
@@ -21,14 +22,27 @@ export class PresentationComponent {
     html: SafeHtml,
     width: string
   }
+  imageSize: {
+    height: string,
+    width: string
+  }
 
-  constructor(private imgs: ImagesService, private clipboard: Clipboard, private sanitizer: DomSanitizer) {
+  constructor(
+    private imgs: ImagesService,
+    private notification: NotificationService,
+    private clipboard: Clipboard,
+    private sanitizer: DomSanitizer) {
     this.hoursWidth = ''
     this.hoursProgramming = ''
     this.spanNumbersArray = []
     this.linesOfCode = {
       html: '',
       width: ''
+    }
+    
+    this.imageSize = {
+      height: '265px',
+      width: '200px'
     }
 
     this.imgs.getImage('home')
@@ -38,13 +52,18 @@ export class PresentationComponent {
   ngOnInit() {
     this.setUpNumbers()
     this.setUpLinesOfCode()
+
+    if(window.innerWidth <= 500){
+      this.imageSize = {
+        height: '130px',
+        width: '100px'
+      }
+    }
   }
 
   public copyEmail() {
-    if(this.clipboard.copy('carlosig490@gmail.com'))
-      alert('Copiado al portapapeles')
-    // this.clipboard.writeText('carlosig490@gmail.com')
-    //   .then(() => alert("Copiado al portapapeles"))
+    if (this.clipboard.copy('carlosig490@gmail.com'))
+      this.notification.success('Copiado al portapapeles', 1000)
   }
 
   private setUpNumbers(): void {

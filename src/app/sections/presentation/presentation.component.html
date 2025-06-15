@@ -2,9 +2,9 @@
 
   <div class="left-content">
     <div class="picture-section">
-      <img [src]="imageBlob" alt="Profile photo" height="265px" width="200px" />
+      <img [src]="imageBlob" alt="Profile photo" [attr.height]="imageSize.height" [attr.width]="imageSize.width" draggable="false"/>
     </div>
-    <h2 style="font-style: italic;">"Lorem ipsum dolor sit amet"</h2>
+    <h2 style="font-style: italic;">"Si se puede soñar<br/>se puede programar"</h2>
   </div>
 
   <div class="right-content">
@@ -25,7 +25,7 @@
       style="grid-column: 1 / span 2; height: fit-content; max-width: none;">
       TECNOLOGÍAS QUE USO ACTUALMENTE
       <div style="display: flex;">
-        <ngx-gauge label="AngularJS" [size]="250" [value]="55" foregroundColor="#ef233c" [thick]="9" cap="round">
+        <ngx-gauge label="Angular/AngularJS" [size]="250" [value]="55" foregroundColor="#ef233c" [thick]="9" cap="round">
           <ngx-gauge-value>
             <ng-icon name="remixAngularjsLine"></ng-icon>
           </ngx-gauge-value>
@@ -57,13 +57,11 @@
     </div>
 
     <div id="social-media" class="kpi-box" style="grid-column: 1 / span 2">
-      <div id="social-media">
+      <div style="position: absolute; top: 10px;">ENCUÉNTRAME AQUÍ</div>
+      <div style="display: flex;">
         <a href="https://github.com/carlosiglesias1" target="_blank">
           <ng-icon name="bootstrapGithub" size="55px"></ng-icon>
         </a>
-        <!-- <a href="mailto:carlosig490@gmail.com">
-          <ng-icon></ng-icon>
-        </a> -->
         <div (click)="copyEmail()" style="cursor: pointer; height: 55px; width: 55px;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 49.4 512 399.42" style="height: 100%; width: 100%;">
             <g fill="none" fill-rule="evenodd">

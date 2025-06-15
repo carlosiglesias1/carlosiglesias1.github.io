@@ -15,6 +15,7 @@ import { PresentationComponent } from './sections/presentation/presentation.comp
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { SkillsComponent } from './sections/skills/skills.component';
 import { CardViewComponent } from './components/card-view/card-view.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 import { ImagesService } from './services/images.service';
 
@@ -24,6 +25,7 @@ import { ImagesService } from './services/images.service';
     PresentationComponent,
     ProjectsComponent,
     SkillsComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
