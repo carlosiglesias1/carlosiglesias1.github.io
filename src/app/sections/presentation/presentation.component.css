@@ -2,20 +2,11 @@ strong {
     font-weight: 500;
 }
 
-h2 {
-    align-items: center;
-    font-family: Montserrat, sans-serif !important;
-    font-size: 2.5rem !important;
-    height: auto;
-    text-align: center;
-}
-
 .main-section {
     display: grid;
     gap: 1px;
     grid-template-columns: 35% 65%;
     height: 100%;
-    /* align-items: center; */
 }
 
 .left-content {
@@ -36,18 +27,29 @@ h2 {
     user-select: none;
 }
 
+.left-content h2 {
+    align-items: center;
+    font-family: Montserrat, sans-serif !important;
+    font-size: 2.5rem !important;
+    font-style: italic;
+    font-weight: 100;
+    height: auto;
+    text-align: center;
+}
+
 .right-content {
     display: grid;
     grid-gap: 3px;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto;
-    margin-top: 25px;
+    grid-template-rows: auto auto auto;
+    margin-top: 0px;
 }
 
 .kpi-box {
     align-items: center;
-    background-color: #edf2f4;
+    background-color: #dfe4e5;
     border-radius: 5px;
+    /* border: 2px solid; */
     color: #ef233c;
     display: flex;
     flex-direction: column;
@@ -61,12 +63,6 @@ h2 {
 
 .kpi-box>h3 {
     font-size: 48px;
-}
-
-span {
-    display: block;
-    width: 100%;
-    text-align: right;
 }
 
 .number-display {
@@ -106,6 +102,17 @@ span {
     flex-shrink: 1;
 }
 
+.picture-section img {
+    height: 265px;
+    width: 200px;
+}
+
+#currently-working-on>div {
+    height: 440px;
+    padding-left: 200px;
+    width: 700px;
+}
+
 #siemens-environment .reading-block {
     transform: translateY(75px) !important;
 }
@@ -139,9 +146,43 @@ span {
 @media screen and (max-width: 500px) {
     .main-section {
         display: block;
+        overflow-y: auto;
     }
 
-    .left-content{        
+    .left-content {
+        align-items: center;
+        flex-direction: row;
         max-width: 100%;
+    }
+
+    .left-content>h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .picture-section img {
+        height: 132px;
+        width: 100px;
+    }
+
+    h3.number-display {
+        margin-bottom: 0px !important;
+    }
+
+    .right-content {
+        grid-template-rows: auto auto auto;
+        overflow-y: auto;
+    }
+
+    .right-content #hours-counter {
+        column-span: 1 / span 2;
+    }
+
+    #currently-working-on>div {
+        height: 400px;
+        padding-left: 250px;
+    }
+
+    #social-media {
+        grid-row: 3 / -1;
     }
 }

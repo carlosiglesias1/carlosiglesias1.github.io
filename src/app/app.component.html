@@ -1,34 +1,41 @@
 <app-notification></app-notification>
 <div class="app-content">
 
-  <div class="main-title">
-    <h1>Carlos Iglesias</h1>
+  <div class="main-title-container">
+    <div class="main-title">
+      <h1>Carlos Iglesias Gómez</h1>
+      <nav>
+        <ul>
+          <li [ngClass]="{'selected-section': selectedSection == 0, 'available': selectedSection != 0 }">
+            <a routerLink="/welcome" (click)="navigateTo(0); $event.preventDefault()">
+              <ng-icon [name]="this.selectedSection === 0 ? 'bootstrapHouseFill' : 'bootstrapHouse'"></ng-icon>
+              Inicio
+            </a>
+          </li>
+          <li [ngClass]="{'selected-section': selectedSection == 1, 'available' : selectedSection !=1 }">
+            <a routerLink="/projects" (click)="navigateTo(1); $event.preventDefault()">
+              <ng-icon [name]="this.selectedSection === 1 ? 'bootstrapFileCodeFill' : 'bootstrapFileCode'"></ng-icon>
+              Proyectos
+            </a>
+          </li>
+          <!-- <li [ngClass]="{'selected-section': selectedSection == 2, 'available': selectedSection != 2  }">
+            <a routerLink="/skills" (click)="navigateTo(2); $event.preventDefault()">Skills</a>
+          </li>
+        
+          <li [ngClass]="{'selected-section': selectedSection == 3, 'available': selectedSection != 3  }">
+            <a routerLink="/aboutme" (click)="navigateTo(2); $event.preventDefault()">Sobre mí</a>
+          </li>  -->
+        </ul>
+      </nav>
+    </div>
   </div>
 
-  <nav>
-    <ul>
-      <li [ngClass]="{'selected-section': selectedSection == 0, 'available': selectedSection != 0 }">
-        <a routerLink="/welcome" (click)="navigateTo(0); $event.preventDefault()">Inicio</a>
-      </li>
-      <li [ngClass]="{'selected-section': selectedSection == 1, 'available' : selectedSection !=1 }">
-        <a routerLink="/projects" (click)="navigateTo(1); $event.preventDefault()">Proyectos</a>
-      </li>
-      <li [ngClass]="{'selected-section': selectedSection == 2, 'available': selectedSection != 2  }">
-        <a routerLink="/skills" (click)="navigateTo(2); $event.preventDefault()">Skills</a>
-      </li>
-      <!-- 
-      <li [ngClass]="{'selected-section': selectedSection == 3, 'available': selectedSection != 3  }">
-        <a routerLink="/aboutme" (click)="navigateTo(2); $event.preventDefault()">Sobre mí</a>
-      </li> 
-      -->
-    </ul>
-  </nav>
 
   <div class="content">
     <router-outlet></router-outlet>
   </div>
 
   <footer>
-    
+
   </footer>
 </div>
