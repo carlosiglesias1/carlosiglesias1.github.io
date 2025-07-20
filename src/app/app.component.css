@@ -1,39 +1,42 @@
 :host {
     --app-background: #ffffff;
     --nav-decoration: #1f2833;
-    --highlights: #b8000050;
+    --highlights: #d9042950;
 
     font-size: 17px;
+}
+
+.main-title-container::after {
+    background: linear-gradient(var(--app-background), #bf2020, var(--app-background));
+    /* background-color: #d40000; */
+    content: "";
+    display: block;
+    height: 3px;
+    margin: 0px 5px 10px;
+    position: relative;
 }
 
 .main-title {
     color: #080808;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-weight: 300;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 40px;
     margin-top: 10px;
     width: 100%;
 }
 
-.main-title::after {
-    background-color: #d40000;
-    content: "";
-    display: block;
-    height: 1px;
-    margin: 15px 5px 0;
-    position: relative;
-}
-
 .main-title>h1 {
     font-size: 50px;
+    font-weight: 300;
     margin-bottom: 0;
     text-align: center;
 }
 
 nav {
-    width: 100%;
+    /* width: 100%; */
+    flex: 1;
 }
 
 nav::before {
@@ -42,6 +45,9 @@ nav::before {
 
 nav>ul {
     margin: 10px 50px;
+    display: flex;
+    justify-content: end;
+    list-style: none;
 }
 
 nav>ul>li {
@@ -65,6 +71,7 @@ nav>ul>li.available:hover::after {
 
 nav>ul>li>a {
     text-decoration: none;
+    overflow-y: hidden;
 }
 
 nav>ul>li>a {
@@ -72,14 +79,14 @@ nav>ul>li>a {
     text-decoration: none;
 }
 
-.selected-section::after {
+/* .selected-section::after {
     background-color: var(--highlights);
     content: '';
     display: block;
     height: 2px;
     margin: 0;
     width: 100%;
-}
+} */
 
 .app-content {
     background-color: var(--app-background);
@@ -94,7 +101,8 @@ nav>ul>li>a {
     align-content: center;
     flex-grow: 1;
     height: 100px;
-    padding: 5px;
+    padding: 0 5px 5px;
+    margin-right: 5px;
 }
 
 footer {
@@ -121,8 +129,26 @@ footer a {
         width: 100%;
     }
 
+    .main-title>h1{
+        font-size: 30px;
+    }
+
     .content {
         align-content: start;
         background-color: #c5c6c730;
+    }
+
+    nav {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav>ul {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10px 0;
+        padding: 0;
+        width: 100%;
     }
 }

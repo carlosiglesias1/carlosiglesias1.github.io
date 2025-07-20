@@ -16,10 +16,10 @@ export class ImagesService {
     this.imageUrls = new Map(
       [
         [
-          'home', `${driveContentUrl}1CqLB45J7fpKnHPx8SAV5-X_BVhmHfGOl`
+          'home', `${driveContentUrl}1csj7K5ey5nMEYgnGxgefk2Bi1xr9NF6H`
         ],
         [
-          'lms', driveContentUrl + '1aDH5ShpTOfp01lfahZN2S17fpj3InQ6S'
+          'lms', driveContentUrl + '10CDh8WWnh6i_zdpjK_cNHhgiMXgEhOT3'
         ],
         [
           'mes', driveContentUrl + '1ofkBJxPOUtjKQFRwbIN_YGDFs2rceWiV'
@@ -46,9 +46,10 @@ export class ImagesService {
           if (subscription?.closed) {
             subscriber.next(this.images.get(name))
           } else {
-            this.imageRequests.get(name)?.add(() => {
-              subscriber.next(this.images.get(name))
-            })
+            this.imageRequests.get(name)
+              ?.add(() => {
+                subscriber.next(this.images.get(name))
+              })
           }
         }
       }
@@ -72,6 +73,7 @@ export class ImagesService {
 
               observer.next(`data:image/bmp;base64,${btoa(data)}`);
               observer.complete()
+              observer.unsubscribe()
             } else {
               observer.error(xhr);
             }
