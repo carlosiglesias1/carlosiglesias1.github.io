@@ -171,6 +171,11 @@ strong {
     .right-content {
         grid-template-rows: auto auto auto;
         overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .right-content>.kpi-box>span{
+        display: none;
     }
 
     .right-content #hours-counter {

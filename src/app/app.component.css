@@ -129,13 +129,14 @@ footer a {
         width: 100%;
     }
 
-    .main-title>h1{
+    .main-title>h1 {
         font-size: 30px;
     }
 
-    .content {
+    .app-content>.content {
         align-content: start;
         background-color: #c5c6c730;
+        margin: 0;
     }
 
     nav {
