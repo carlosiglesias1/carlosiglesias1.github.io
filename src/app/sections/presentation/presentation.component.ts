@@ -53,8 +53,11 @@ export class PresentationComponent implements OnInit {
         layout: {
           padding: {
             autoPadding: false,
-            left: 10
           }
+        },
+        maintainAspectRatio: false,
+        onResize: (...args: any) => {
+          console.log('Chart resized', args)
         },
         plugins: {
           legend: {

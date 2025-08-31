@@ -21,7 +21,7 @@
       LÍNEAS DE CÓDIGO
     </div>
 
-    <div id="currently-working-on" class="kpi-box" style="grid-column: 1 / span 2; height: fit-content;">
+    <div id="currently-working-on" class="kpi-box" style="grid-column: 1 / span 2;">
       TECNOLOGÍAS QUE USO ACTUALMENTE
       <div>
         <canvas baseChart [data]="currentlyWorkingOnChart.data" [options]="currentlyWorkingOnChart.options"
@@ -30,7 +30,9 @@
     </div>
 
     <div id="social-media" class="kpi-box" style="grid-column: 1 / span 2">
-      <div style="position: absolute; top: 10px;">ENCUÉNTRAME AQUÍ</div>
+      <div style="position: relative; height: 24px; width: 100%;">
+        <div style="position: absolute; top: 0px; text-align: center; width: 100%;">ENCUÉNTRAME AQUÍ</div>
+      </div>
       <div style="display: flex;">
         <a href="https://github.com/carlosiglesias1" target="_blank">
           <ng-icon name="bootstrapGithub" size="55px"></ng-icon>

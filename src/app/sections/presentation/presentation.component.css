@@ -49,14 +49,11 @@ strong {
     align-items: center;
     background-color: #dfe4e5;
     border-radius: 5px;
-    /* border: 2px solid; */
     color: #ef233c;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0.1em 0;
-    /* max-width: 480px; */
-    height: 150px;
     padding: 5px;
     position: relative;
 }
@@ -108,9 +105,8 @@ strong {
 }
 
 #currently-working-on>div {
-    height: 440px;
-    padding-left: 200px;
-    width: 700px;
+    height: 100%;
+    width: 100%;
 }
 
 #siemens-environment .reading-block {
@@ -174,17 +170,12 @@ strong {
         padding-right: 5px;
     }
 
-    .right-content>.kpi-box>span{
+    .right-content>.kpi-box>span {
         display: none;
     }
 
     .right-content #hours-counter {
         column-span: 1 / span 2;
-    }
-
-    #currently-working-on>div {
-        height: 400px;
-        padding-left: 250px;
     }
 
     #social-media {
