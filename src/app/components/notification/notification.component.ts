@@ -39,25 +39,31 @@ export class NotificationComponent {
     let classesToAdd = ['message-box', boxColorClass];
 
     let notificationBox = this.renderer.createElement('div');
-    let header = this.renderer.createElement('h4');
-    let content = this.renderer.createElement('div');
+    let content = this.renderer.createElement('h4');
+    let progressBarContainer = this.renderer.createElement('div')
+    let progressBar = this.renderer.createElement('div');
 
     classesToAdd.forEach((_class) => _class && this.renderer.addClass(notificationBox, _class));
-    this.renderer.setStyle(notificationBox, 'transition', `opacity ${notification.duration}ms`);
-    this.renderer.setStyle(notificationBox, 'opacity', '0.9');
+    this.renderer.addClass(progressBarContainer, 'progress-bar-container')
+    this.renderer.setStyle(notificationBox, 'transition', `opacity ${1000}ms`); //notification.duration
+    this.renderer.setStyle(notificationBox, 'opacity', '1');
 
-    const headerText = this.renderer.createText(NotificationType[notification.type]);
-    this.renderer.setStyle(header, 'margin', '0');
-    this.renderer.appendChild(header, headerText);
-    
+    this.renderer.setStyle(progressBar, 'height', '100%');
+    this.renderer.setStyle(progressBar, 'width', '0');
+    this.renderer.setStyle(progressBar, 'background-color', '#137417')
+    // this.renderer.setStyle(progressBar, 'margin-right', '30px')
+    // this.renderer.setStyle(progressBar, 'position', 'absolute')
+    this.renderer.setStyle(progressBar, 'bottom', 10)
+
     const text = this.renderer.createText(notification.message);
     this.renderer.appendChild(content, text);
 
     if (this.container)
       this.renderer.appendChild(this.container.nativeElement, notificationBox);
 
-    this.renderer.appendChild(notificationBox, header);
+    this.renderer.appendChild(progressBarContainer, progressBar);    
     this.renderer.appendChild(notificationBox, content);
+    this.renderer.appendChild(notificationBox, progressBarContainer)
 
     setTimeout(() => {
       this.renderer.setStyle(notificationBox, 'opacity', '0');
@@ -66,5 +72,17 @@ export class NotificationComponent {
           this.renderer.removeChild(this.container.nativeElement, notificationBox);
       }, notification.duration);
     }, notification.duration);
+
+    let timePassed = 0
+    let intervalId = setInterval(() => {
+      if (timePassed >= notification.duration)
+        clearInterval(intervalId)
+      else {
+        let width = (timePassed / notification.duration) * 100
+        this.renderer.setStyle(progressBar, 'width', `${width}%`)
+
+        timePassed += 10
+      }
+    }, 10)
   }
 }

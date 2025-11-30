@@ -1,8 +1,10 @@
 .notification-container {
+    bottom: 0;
+    min-width: 250px;
     position: absolute;
-    z-index: 1500;
-    width: 25%;
     right: 0;
+    width: 25%;
+    z-index: 1500;
 }
 
 .noselect {
@@ -14,18 +16,38 @@
     user-select: none;
 }
 
-.message-box { 
+.message-box {
+    box-shadow: 2px 2px 5px gray;
+    /* border-radius: 5px; */
     font-size: 20px;
-    line-height: inherit;
+    /* line-height: inherit; */
     margin: 5px 10px;
     padding: 5px;
-    box-shadow: 2px 2px 5px gray;
-    border-radius: 5px;
 }
 
-.success { 
-    background-color: #bbffb9; 
-    color: #293035;
+.message-box h4 {
+    margin-top: 10px;
 }
-.warning { background-color: orange; }
-.error { background-color: red; }
+
+.success {
+    background-color: #ddffdd;
+    border: solid 1px #4caf50;
+    color: #137417;
+    /* padding: 5px; */
+}
+
+.warning {
+    background-color: orange;
+}
+
+.error {
+    background-color: red;
+}
+
+.progress-bar-container {
+    bottom: 10;
+    height: 3px;
+    max-width: calc(100% - 30px);
+    position: absolute;
+    width: 100%;
+}
