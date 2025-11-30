@@ -1,8 +1,14 @@
-<div class="cig-card">
-    <div class="cig-card-image">
+<div #card class="cig-card" (click)="expandCard($event)">
+    <!-- <div class="cig-card-image">
         <img [src]="image" />
-    </div>
+    </div> -->
     <div class="cig-card-title">
         <h2>{{title}}</h2>
+    </div>
+    <div class="cig-card-icon">
+        <ng-icon [name]="icon || 'bootstrapDatabaseGear'" size="3rem"></ng-icon>
+    </div>
+    <div class="cig-card-content">
+        {{content}}
     </div>
 </div>

@@ -2,7 +2,8 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown } from '@ng-icons/bootstrap-icons';
+import { bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, bootstrapDatabaseGear } from '@ng-icons/bootstrap-icons';
+import { hugeFactory02 } from '@ng-icons/huge-icons'
 import { remixAngularjsLine } from '@ng-icons/remixicon';
 import { simpleSiemens } from '@ng-icons/simple-icons';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
@@ -33,7 +34,7 @@ import { ImagesService } from './services/images.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgIconsModule.withIcons({ bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, remixAngularjsLine, simpleSiemens }),
+    NgIconsModule.withIcons({ bootstrapDatabaseGear, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, hugeFactory02, remixAngularjsLine, simpleSiemens }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
