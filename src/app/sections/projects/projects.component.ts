@@ -12,15 +12,19 @@ export class ProjectsComponent {
   public cards: {
     title: string,
     imageName: string,
-    description: string | null
+    iconName?: string,
+    description?: string,
+    content?: string
   }[]
 
   constructor(private images_svc: ImagesService) {
     this.cards = [
       {
-        title: 'Sistemas de administración de líneas de producción',
+        title: 'Sistemas de monitoreo de líneas de producción',
+        iconName: 'hugeFactory02',
         imageName: 'lms',
-        description: 'Aplicación Web (fullstack WebApp+WebAPI) para integrar consultas de sistemas LMS en entorno MES'
+        description: 'Aplicación Web (fullstack WebApp+WebAPI) para integrar consultas de sistemas LMS en entorno MES',
+        content: 'Los Sistemas de Monitorización de Líneas de producción (Line Monitoring System o LMS) son sistemas diseñados para historizar puntos clave y analizar el rendimiento de procesos en líneas de producción industrial, en este caso el proyecto consistió en construír una web api para poder leer los valores historizados y los módulos que representasen gráficamente los valores.'
       },
       {
         title: 'Integración MES',
