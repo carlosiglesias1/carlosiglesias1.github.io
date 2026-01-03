@@ -243,7 +243,7 @@ export class PresentationComponent implements OnInit {
     }
   }  
 
-  @HostListener('copy', ['$event']) blockCopy(e: KeyboardEvent) {
+  @HostListener('copy', ['$event']) blockCopy(e: ClipboardEvent) {
     e.preventDefault();
   }
 }
