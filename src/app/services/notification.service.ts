@@ -27,7 +27,7 @@ export class NotificationService {
     this.notification$.next({
       message: message,
       type: type,
-      duration: duration || 3000
+      duration: duration || 10000
     } as INotification)
   }
 }

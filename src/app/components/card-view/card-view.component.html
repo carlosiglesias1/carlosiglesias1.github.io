@@ -1,8 +1,19 @@
-<div class="cig-card">
-    <div class="cig-card-image">
+<div #card class="cig-card" (click)="expandCard($event)">
+    <!-- <div class="cig-card-image">
         <img [src]="image" />
-    </div>
+    </div> -->
     <div class="cig-card-title">
         <h2>{{title}}</h2>
+    </div>
+    <div class="cig-card-icon">
+        <ng-icon [name]="icon || 'bootstrapDatabaseGear'" size="2.75rem"></ng-icon>
+    </div>
+    <div class="cig-card-content">
+        {{description}}
+    </div>
+    <div class="cig-card-tecnologies">
+        <div class="cig-card-tecnology" *ngFor="let tecnology of tecnologies">
+            {{tecnology}}
+        </div>
     </div>
 </div>

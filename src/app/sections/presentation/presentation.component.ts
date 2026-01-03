@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ImagesService } from '../../services/images.service';
@@ -31,7 +31,6 @@ export class PresentationComponent implements OnInit {
     },
     options: {}
   }
-
 
   constructor(
     private imgs: ImagesService,
@@ -196,7 +195,7 @@ export class PresentationComponent implements OnInit {
 
   public copyEmail() {
     if (this.clipboard.copy('carlosig490@gmail.com'))
-      this.notification.success('Copiado al portapapeles', 1000)
+      this.notification.success('Copiado al portapapeles', 3000)
   }
 
   private setUpNumbers(): void {
@@ -227,7 +226,7 @@ export class PresentationComponent implements OnInit {
 
       spanNumbersArray.push(`<span class="number-holder visible">${spanList.map((_, index) => `<span>${index}</span>`).join('')}</span>`)
     }
-    this.linesOfCode.html = this.sanitizer.bypassSecurityTrustHtml('~' + spanNumbersArray.join(''))
+    this.linesOfCode.html = this.sanitizer.bypassSecurityTrustHtml(spanNumbersArray.join(''))
     setTimeout(() => {
       this.animateNumber('#lines-wroten>span', linesOfCode)
       this.linesOfCode.width = `${(linesOfCode.length + 1) * 28}px`
@@ -242,5 +241,9 @@ export class PresentationComponent implements OnInit {
           htmlSpan.style.transform = `translateY(-${100 * parseInt(hoursDigits[index])}%)`
         })
     }
+  }  
+
+  @HostListener('copy', ['$event']) blockCopy(e: ClipboardEvent) {
+    e.preventDefault();
   }
 }

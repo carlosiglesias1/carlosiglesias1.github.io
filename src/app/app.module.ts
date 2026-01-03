@@ -2,7 +2,8 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown } from '@ng-icons/bootstrap-icons';
+import { bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, bootstrapDatabaseGear } from '@ng-icons/bootstrap-icons';
+import { lucideFactory } from '@ng-icons/lucide'
 import { remixAngularjsLine } from '@ng-icons/remixicon';
 import { simpleSiemens } from '@ng-icons/simple-icons';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
@@ -33,7 +34,7 @@ import { ImagesService } from './services/images.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgIconsModule.withIcons({ bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, remixAngularjsLine, simpleSiemens }),
+    NgIconsModule.withIcons({ bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapDatabaseGear, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, lucideFactory, remixAngularjsLine, simpleSiemens }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
