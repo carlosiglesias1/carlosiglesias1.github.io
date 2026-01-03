@@ -217,6 +217,9 @@ MIT
 @ng-icons/core
 MIT
 
+@ng-icons/lucide
+ISC
+
 @ng-icons/remixicon
 Apache
 
