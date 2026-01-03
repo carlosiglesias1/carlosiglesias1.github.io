@@ -1,25 +1,40 @@
+:host {
+    height: 100%;
+}
+
 .cig-card {
-    /* border: 1px #0f0f0f30 solid; */
+    --grad: #e0e4e5, red;
+    
+    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+    border: 1px #0f0f0f30 solid;
+    /* border-radius: 2rem; */
     border-radius: 2em;
-    box-shadow:
+    /* box-shadow:
         inset -2px 2px hsl(0 0 100% / 1),
-        -20px 20px 40px hsl(0 0 0 / .25);
+        -20px 20px 40px hsl(0 0 0 / .25); */
     /* box-shadow: 0px 0px 2px 2px #0f0f0f30; */
+    color: #444447;
     display: grid;
+    font-family: system-ui, sans-serif;
+    gap: 10px;
+    grid-template: 'title icon' 'content content' 'bar bar' 'tecnologies tecnologies' / 1fr auto;
+    grid-template-rows: 50px 1fr 2px 25px;
+
+    /**
+     * todo el alto menos el padding
+     */
+    height: calc(100% - 5rem - 2px);
+
+    margin-bottom: 0;
     padding: 2.5rem;
     position: relative;
-    --grad: #e0e4e5, red;
-    padding: 2.5rem;
-    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
-    /* border-radius: 2rem; */
-    gap: 1.5rem;
-    /* display: grid; */
-    grid-template: 'title icon' 'content content' 'bar bar' / 1fr auto;
-    font-family: system-ui, sans-serif;
-    color: #444447;
-    box-shadow:
-        inset -2px 2px hsl(0 0 100% / 1),
-        -20px 20px 40px hsl(0 0 0 / .25);
+}
+
+.cig-card::after {
+    content: '';
+    grid-area: bar;
+    height: 2px;
+    background-image: linear-gradient(90deg, var(--grad));
 }
 
 .cig-card-image {
@@ -46,7 +61,7 @@
     align-self: end;
     text-transform: uppercase;
     font-weight: 500;
-    word-break: break-all;
+    word-break: keep-all;
 }
 
 .cig-card-title>h2 {
@@ -66,15 +81,17 @@
     margin-bottom: 0
 }
 
-.cig-card::after {
-    content: '';
-    grid-area: bar;
-    height: 2px;
-    background-image: linear-gradient(90deg, var(--grad));
+.cig-card-tecnologies {
+    display: flex;
+    grid-area: tecnologies;
+    overflow-x: auto;
 }
 
-@media screen and (max-width : 500px) {
-    .cig-card-image {
-        margin-top: 0;
-    }
+.cig-card-tecnology {
+    border: 1px solid red;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 2px;
+    margin: 0 1px;
+    white-space: nowrap;
 }

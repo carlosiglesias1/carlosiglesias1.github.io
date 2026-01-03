@@ -1,3 +1,4 @@
 <div class="card-container">
-    <cig-card-view *ngFor="let card of cards;" [title]="card.title" [icon]="card.iconName" [image]="images[card.imageName]" [content]="card.description || ''"></cig-card-view>
+    <cig-card-view *ngFor="let card of cards;" [title]="card.title" [icon]="card.iconName"
+        [image]="images[card.imageName]" [description]="card.description || ''" [tecnologies]="card.tecnologies || []"></cig-card-view>
 </div>
