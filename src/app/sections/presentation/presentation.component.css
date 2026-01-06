@@ -68,8 +68,18 @@ strong {
     position: relative;
 }
 
-.kpi-box>h3 {
+.kpi-box h3#hours-counter {
     font-size: 48px;
+}
+
+.kpi-box>.subtitle {
+    bottom: 3px;
+    max-width: calc(100% - 30px);
+    margin: 0 5px;
+    position: absolute;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .number-display {

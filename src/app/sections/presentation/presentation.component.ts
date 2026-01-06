@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ImagesService } from '../../services/images.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import { callback } from 'chart.js/dist/helpers/helpers.core';
+import { svglCsharp } from '@ng-icons/svgl'
 
 @Component({
   selector: 'app-presentation',
@@ -31,6 +31,55 @@ export class PresentationComponent implements OnInit {
     },
     options: {}
   }
+
+  protected angularIcon: string = `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+            <g clip-path="url(#prefix__clip0_9_19)">
+              <mask id="prefix__a" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="14" y="0" width="484"
+                height="512">
+                <path d="M14 0h484v512H14V0z" fill="#fff" />
+              </mask>
+              <g mask="url(#prefix__a)">
+                <mask id="prefix__b" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="14" y="0" width="484"
+                  height="512">
+                  <path d="M14 0h484v512H14V0z" fill="#fff" />
+                </mask>
+                <g mask="url(#prefix__b)">
+                  <path
+                    d="M496 86l-18 272L312 0l184 86zM380 438l-124 72-126-72 24-62h202l24 62zM256 136l64 160H190l66-160zM32 358L14 86 198 0 32 358z"
+                    fill="url(#prefix__paint0_linear_9_19)" />
+                  <path
+                    d="M496 86l-18 272L312 0l184 86zM380 438l-124 72-126-72 24-62h202l24 62zM256 136l64 160H190l66-160zM32 358L14 86 198 0 32 358z"
+                    fill="url(#prefix__paint1_linear_9_19)" />
+                </g>
+              </g>
+            </g>
+            <defs>
+              <linearGradient id="prefix__paint0_linear_9_19" x1="120.4" y1="463.8" x2="504" y2="281.4"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E40035" />
+                <stop offset=".2" stop-color="#F60A48" />
+                <stop offset=".4" stop-color="#F20755" />
+                <stop offset=".5" stop-color="#DC087D" />
+                <stop offset=".7" stop-color="#9717E7" />
+                <stop offset="1" stop-color="#6C00F5" />
+              </linearGradient>
+              <linearGradient id="prefix__paint1_linear_9_19" x1="103" y1="61.4" x2="354" y2="348"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF31D9" />
+                <stop offset="1" stop-color="#FF5BE1" stop-opacity="0" />
+              </linearGradient>
+              <clipPath id="prefix__clip0_9_19">
+                <path fill="#fff" transform="translate(14)" d="M0 0h484v512H0z" />
+              </clipPath>
+            </defs>
+          </svg>`
+
+  protected siemensIcon: string = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 64 64">
+            <path d="M0 0h64v64H0z" fill="#099" />
+            <path
+              d="M19.01 49.22v-7.04c4.013 1.262 7.563 1.892 10.65 1.892 4.258-.005 6.388-1.134 6.388-3.39a2.76 2.76 0 0 0-.933-2.118c-.63-.603-2.256-1.448-4.874-2.535-4.698-1.922-7.76-3.564-9.185-4.926-1.847-1.797-2.77-4.065-2.77-6.804 0-3.53 1.345-6.224 4.034-8.082s6.153-2.77 10.39-2.733c2.352 0 5.757.434 10.213 1.3v6.78c-3.313-1.323-6.388-1.985-9.223-1.985-4.003 0-6.005 1.1-6.005 3.303.01.84.47 1.612 1.21 2.015.663.42 2.508 1.31 5.537 2.67 4.354 1.933 7.253 3.614 8.697 5.042 1.715 1.697 2.572 3.89 2.572 6.582 0 3.87-1.68 6.82-5.042 8.847-2.733 1.65-6.262 2.472-10.59 2.47-3.727-.007-7.44-.442-11.067-1.298z"
+              fill="#fff" />
+          </svg>`
 
   constructor(
     private imgs: ImagesService,
@@ -117,6 +166,7 @@ export class PresentationComponent implements OnInit {
 
                 const tableBody = document.createElement('tbody');
                 bodyLines.forEach((body: any, i: number) => {
+                  const title = titleLines[i]
                   const colors = tooltip.labelColors[i];
 
                   const span = document.createElement('span');
@@ -134,6 +184,24 @@ export class PresentationComponent implements OnInit {
 
                   const td = document.createElement('td');
                   td.style.borderWidth = '0'
+                  td.innerHTML = `<div style="height: 70px">${(() => {
+                    switch (title) {
+                      case 'Angular':
+                      case 'AngularJS': return this.angularIcon
+                      case '.Net/.Net Framework':
+                        let svgParts = svglCsharp.split('svg ')
+                        return `${svgParts[0]}svg height="100%" width="100%" ${svgParts[1]}`
+                      case 'Opcenter':
+                      case 'SimaticIT': return this.siemensIcon
+                      default: return ''
+                    }
+                  })()}</div>`
+
+                  if (title === '.Net/.Net Framework') {
+                    let element: any = document.createElement('ng-icon')
+                    element.name = 'simpleSiemens'
+                    td.append(element)
+                  }
 
                   // td.appendChild(span);
 
@@ -199,12 +267,11 @@ export class PresentationComponent implements OnInit {
   }
 
   private setUpNumbers(): void {
-    let hoursDigits = (() => { return Math.floor((new Date().getTime() - new Date('01-01-2020 00:00:00Z').getTime()) / 3600000) })()
+    let hoursDigits = (() => { return Math.floor(new Date().getFullYear() - new Date('01-01-2022 00:00:00Z').getFullYear()) })()
       .toString().split('')
 
     for (let i = 0; i < hoursDigits.length; i++) {
-      const spanList = Array(10)
-        .fill(0, 0, 10)
+      const spanList = Array(10).fill(0, 0, 10)
 
       this.spanNumbersArray.push(`<span class="number-holder visible">${spanList.map((_, index) => `<span>${index}</span>`).join('')}</span>`)
     }
@@ -241,9 +308,10 @@ export class PresentationComponent implements OnInit {
           htmlSpan.style.transform = `translateY(-${100 * parseInt(hoursDigits[index])}%)`
         })
     }
-  }  
+  }
 
   @HostListener('copy', ['$event']) blockCopy(e: ClipboardEvent) {
+    e.stopPropagation()
     e.preventDefault();
   }
 }
