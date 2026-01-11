@@ -226,6 +226,9 @@ Apache
 @ng-icons/simple-icons
 CC0-1.0
 
+@ng-icons/svgl
+MIT
+
 chart.js
 MIT
 The MIT License (MIT)
