@@ -2,10 +2,12 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, bootstrapDatabaseGear } from '@ng-icons/bootstrap-icons';
+import { bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGit, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, bootstrapDatabaseGear } from '@ng-icons/bootstrap-icons';
 import { lucideFactory } from '@ng-icons/lucide'
-import { remixAngularjsLine } from '@ng-icons/remixicon';
+import { remixAngularjsLine, remixAngularjsFill } from '@ng-icons/remixicon';
 import { simpleSiemens } from '@ng-icons/simple-icons';
+import { svglCsharp } from '@ng-icons/svgl';
+
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -34,7 +36,7 @@ import { ImagesService } from './services/images.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgIconsModule.withIcons({ bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapDatabaseGear, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, lucideFactory, remixAngularjsLine, simpleSiemens }),
+    NgIconsModule.withIcons({ svglCsharp, bootstrapBarChartSteps, bootstrapBuilding, bootstrapDatabase, bootstrapDatabaseGear, bootstrapFileCode, bootstrapFileCodeFill, bootstrapGit, bootstrapGithub, bootstrapHouse, bootstrapHouseFill, bootstrapInstagram, bootstrapLinkedin, bootstrapArrowUp, bootstrapArrowDown, lucideFactory, remixAngularjsLine, remixAngularjsFill, simpleSiemens }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'

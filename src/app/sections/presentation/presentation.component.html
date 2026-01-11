@@ -8,57 +8,56 @@
   </div>
 
   <div class="right-content">
-    <div>
-      <div id="hours-programming" class="kpi-box">
-        <!-- <span style="color: #35507a">{{'return (new Date() - new Date("01-01-2020 00:00:00Z"))'}}</span> -->
+    <div id="hours-programming" class="kpi-box">
+
+      <div class="hours-carousell">
         <h3 id="hours-counter" class="number-display" [innerHTML]="hoursProgramming" [ngStyle]="{width: hoursWidth}">
         </h3>
-        HORAS PROGRAMANDO
       </div>
 
-      <div id="code-lines-wrote" class="kpi-box">
-        <!-- <span style="color: #35507a">git ls-files | xargs wc -l</span> -->
-        <h3 id="lines-wroten" class="number-display" [innerHTML]="linesOfCode.html"
-          [ngStyle]="{width: linesOfCode.width}"></h3>
-        LÍNEAS DE CÓDIGO
+      <div class="subtitle">AÑOS DE EXPERIENCIA</div>
+    </div>
+
+    <div id="code-lines-wrote" class="kpi-box">
+
+      <div class="my-stack-icons"
+        style="display: grid; height: 3rem; max-width: 100%; width: fit-content; grid-template-columns: repeat(4, 1fr); column-gap: 2px; margin: 0 5px;">
+        @let iconSize = '100%';
+
+        <ng-icon name="bootstrapGit" [size]="iconSize" color="#F1502F"></ng-icon>
+
+        <ng-icon [svg]="angularIcon" [size]="iconSize"></ng-icon>
+
+        <ng-icon [svg]="siemensIcon" [size]="iconSize"></ng-icon>
+
+        <ng-icon name="svglCsharp" [size]="iconSize"></ng-icon>
       </div>
 
-      <div id="currently-working-on" class="kpi-box" style="grid-column: 1 / span 2;">
-        TECNOLOGÍAS QUE USO ACTUALMENTE
-        <div>
-          <canvas baseChart [data]="currentlyWorkingOnChart.data" [options]="currentlyWorkingOnChart.options"
-            [type]="'polarArea'"></canvas>
+      <div class="subtitle">MI STACK ACTUAL</div>
+    </div>
+
+    <div id="currently-working-on" class="kpi-box" style="grid-column: 1 / span 2;">
+      MI STACK COMPLETO
+      <div>
+        <canvas baseChart [data]="currentlyWorkingOnChart.data" [options]="currentlyWorkingOnChart.options"
+          [type]="'polarArea'"></canvas>
+      </div>
+    </div>
+
+    <div id="social-media" class="kpi-box">
+      <div>CONTÁCTAME</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 100%; column-gap: 3px; flex: 1; height: 25px; width: fit-content;">
+        @let contactIconSize = '100%';
+
+        <a href="https://github.com/carlosiglesias1" target="_blank">
+          <ng-icon name="bootstrapGithub" color="#1f2833" [size]="contactIconSize"></ng-icon>
+        </a>
+        <div (click)="copyEmail()" style="cursor: pointer;">
+          <ng-icon [svg]="gmailIcon" [size]="contactIconSize"></ng-icon>
         </div>
-      </div>
-
-      <div id="social-media" class="kpi-box"
-        style="display: flex; flex-direction: column; justify-content: space-between; grid-column: 1 / span 2;">
-        <div>CONTÁCTAME</div>
-        <div style="display: flex;">
-          <a href="https://github.com/carlosiglesias1" target="_blank">
-            <ng-icon name="bootstrapGithub" size="50px"></ng-icon>
-          </a>
-          <div (click)="copyEmail()" style="cursor: pointer; height: 50px; width: 50px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 49.4 512 399.42" style="height: 100%; width: 100%;">
-              <g fill="none" fill-rule="evenodd">
-                <g fill-rule="nonzero">
-                  <path fill="#4285f4"
-                    d="M34.91 448.818h81.454V251L0 163.727V413.91c0 19.287 15.622 34.91 34.91 34.91z" />
-                  <path fill="#34a853"
-                    d="M395.636 448.818h81.455c19.287 0 34.909-15.622 34.909-34.909V163.727L395.636 251z" />
-                  <path fill="#fbbc04"
-                    d="M395.636 99.727V251L512 163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z" />
-                </g>
-                <path fill="#ea4335" d="M116.364 251V99.727L256 204.455 395.636 99.727V251L256 355.727z" />
-                <path fill="#c5221f" fill-rule="nonzero"
-                  d="M0 117.182v46.545L116.364 251V99.727L83.782 75.291C49.25 49.4 0 74.04 0 117.18z" />
-              </g>
-            </svg>
-          </div>
-          <a href="https://www.linkedin.com/in/carlos-iglesias-gomez/" target="_blank">
-            <ng-icon name="bootstrapLinkedin" size="50px" color="#0766c2"></ng-icon>
-          </a>
-        </div>
+        <a href="https://www.linkedin.com/in/carlos-iglesias-gomez/" target="_blank">
+          <ng-icon name="bootstrapLinkedin" color="#0766c2" [size]="contactIconSize"></ng-icon>
+        </a>
       </div>
     </div>
   </div>

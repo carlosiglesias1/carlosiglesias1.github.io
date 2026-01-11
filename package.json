@@ -27,6 +27,7 @@
     "@ng-icons/lucide": "^33.0.0",
     "@ng-icons/remixicon": "^31.3.0",
     "@ng-icons/simple-icons": "^31.3.0",
+    "@ng-icons/svgl": "^33.0.0",
     "@ng-icons/tabler-icons": "^33.0.0",
     "angular-material": "^1.1.24",
     "chart.js": "^4.5.0",
