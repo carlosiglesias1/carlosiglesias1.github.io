@@ -1,3 +1,4 @@
+import data from '../../assets/images/images.json';
 import { Injectable } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 
@@ -7,7 +8,9 @@ import { Observable, Subscriber, Subscription } from 'rxjs';
 export class ImagesService {
 
   private imageUrls: Map<string, string>
-  private images: Map<string, string> = new Map();
+  private images: Map<string, string> = new Map([
+    ['home', 'data:image/png;base64,' + data.home.toString()]
+  ]);
   private imageRequests: Map<string, Subscription> = new Map();
 
   constructor() {
@@ -40,6 +43,7 @@ export class ImagesService {
     return new Observable<string>((subscriber: Subscriber<any>) => {
       if (this.images.has(name))
         subscriber.next(this.images.get(name))
+      // subscriber.next(data.home)
       else {
         if (this.imageRequests.has(name)) {
           let subscription = this.imageRequests.get(name)
